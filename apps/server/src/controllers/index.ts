@@ -1,5 +1,5 @@
 export {
     submitApplication,
-    getApplication,
+    getApplications,
     reviewApplication,
 } from "./application.js";
