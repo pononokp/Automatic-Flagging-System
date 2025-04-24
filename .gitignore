@@ -43,3 +43,7 @@ apps/server/.env.*
 # Frontend
 apps/client/.env*
 apps/client/.env.*
+
+
+# Mock database
+mock_database/

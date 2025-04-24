@@ -1,1 +1,5 @@
-export { flagApplication } from "./application.js";
+export {
+    flagApplicationService,
+    getApplicationsService,
+    updateApplicationService,
+} from "./application.js";

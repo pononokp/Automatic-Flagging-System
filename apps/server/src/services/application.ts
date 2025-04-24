@@ -1,20 +1,27 @@
-const englishHealthcareCountries: string[] = [
-    "United States",
-    "Canada",
-    "United Kingdom",
-    "Australia",
-    "New Zealand",
-    "Ireland",
-    "Singapore",
-    "Kenya",
-    "South Africa",
-    "Nigeria",
-    "Philippines",
-    "India",
-];
+import {
+    saveApplicationDB,
+    getApplicationsDB,
+    updateApplicationDB,
+} from "../models/index.js";
 
-export async function flagApplication(formData: any) {
+export async function flagApplicationService(formData: any) {
     const flags = new Map();
+    const englishHealthcareCountries: string[] = [
+        "United States",
+        "Canada",
+        "United Kingdom",
+        "Australia",
+        "New Zealand",
+        "Ireland",
+        "Singapore",
+        "Kenya",
+        "South Africa",
+        "Nigeria",
+        "Philippines",
+        "India",
+    ];
+
+    console.log(formData);
 
     // Personal Information Checks
     if (
@@ -99,19 +106,15 @@ export async function flagApplication(formData: any) {
         flags.set("activeUseOfEnglish", true);
     }
 
-    // Examinations Checks
+    // Postgraduate Training Checks
     if (
-        formData.examinations.postgradTraining.noOfMonthsPostGradTraining ===
-            24 &&
-        formData.examinations.postgradTraining.noOfMonthsIndependentPractice ===
-            24
+        formData.postgradTraining.noOfMonthsPostGradTraining === 24 &&
+        formData.postgradTraining.noOfMonthsIndependentPractice === 24
     ) {
         flags.set("postgradTraining", true);
     } else if (
-        formData.examinations.postgradTraining.noOfMonthsPostGradTraining ===
-            12 &&
-        formData.examinations.postgradTraining.noOfMonthsIndependentPractice ===
-            36
+        formData.postgradTraining.noOfMonthsPostGradTraining === 12 &&
+        formData.postgradTraining.noOfMonthsIndependentPractice === 36
     ) {
         flags.set("postgradTraining", true);
     }
@@ -131,11 +134,25 @@ export async function flagApplication(formData: any) {
     }
 
     // call db method here
-    const applicationInfo = {
-        applicationInformation: formData,
-        flags: flags,
+    const applicationData = {
+        id:
+            formData.personalInformation.firstName +
+            "_" +
+            formData.personalInformation.lastName,
+        applicantInformation: formData,
+        flags: Object.fromEntries(flags),
         status: "Pending",
     };
 
     // save application info to db
+    await saveApplicationDB(applicationData);
+    return applicationData;
+}
+
+export async function getApplicationsService() {
+    return await getApplicationsDB();
+}
+
+export async function updateApplicationService(applicationData: any) {
+    return await updateApplicationDB(applicationData);
 }

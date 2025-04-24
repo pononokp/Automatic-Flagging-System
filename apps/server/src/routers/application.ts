@@ -1,14 +1,14 @@
 import { Router } from "express";
 import {
     submitApplication,
-    getApplication,
+    getApplications,
     reviewApplication,
 } from "../controllers/index.js";
 
 const router = Router();
 
-router.post("/submit", submitApplication);
-router.get("/get", getApplication);
+router.post("/evaluate", submitApplication);
+router.get("/getApplications", getApplications);
 router.post("/review", reviewApplication);
 
 export default router;

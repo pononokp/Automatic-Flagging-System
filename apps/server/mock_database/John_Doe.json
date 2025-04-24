@@ -1,0 +1,64 @@
+{
+    "id": "John_Doe",
+    "applicantInformation": {
+        "personalInformation": {
+            "firstName": "John",
+            "lastName": "Doe",
+            "email": "john.doe@example.com",
+            "dateOfBirth": "1990-01-01",
+            "legalStatus": "Permanent Resident",
+            "otherCitizenships": "USA",
+            "hasValidDriversLicense": true,
+            "driversLicenseType": "G",
+            "totalInPersonHours": 1200,
+            "meetsCriteriaForCanadianPracticeExperience": true
+        },
+        "previousAndCurrentPraAttempts": {
+            "writtenTdm": true,
+            "resultTdm": "Pass",
+            "currentPraParticipationInOtherJurisdiction": false
+        },
+        "medicalEducation": {
+            "medicalSchoolUniversityAttended": "University of Example",
+            "medDegreeProgramName": "Doctor of Medicine",
+            "yearGraduation": 2015,
+            "languageOfEducation": "English"
+        },
+        "englishProficiency": {
+            "proofOfEnglishLanguageProficiency": {
+                "name": "IELTS",
+                "score": 8
+            },
+            "recentPracticeInEnglishSpeakingCountry": "Canada",
+            "activeUseOfEnglish": true
+        },
+        "examinations": {
+            "nacDate": "2020-09-15",
+            "mccqe2Date": "2021-04-10",
+            "mccqe1Date": "2019-06-20"
+        },
+        "postgradTraining": {
+            "noOfMonthsPostGradTraining": 24,
+            "noOfMonthsIndependentPractice": 12,
+            "completionOf2YearPostGrad": true
+        },
+        "rotations": {
+            "completed7Rotations": true
+        },
+        "impairmentToAbilityToPractice": false
+    },
+    "flags": {
+        "legalStatus": false,
+        "driversLicense": true,
+        "totalInPersonHours": true,
+        "meetsCriteriaForCanadianPracticeExperience": true,
+        "writtenTdm": true,
+        "resultTdm": true,
+        "currentPraParticipationInOtherJurisdiction": true,
+        "proofOfEnglishLanguageProficiency": true,
+        "activeUseOfEnglish": true,
+        "completed7Rotations": true,
+        "impairmentToAbilityToPractice": true
+    },
+    "status": "Reviewed"
+}
