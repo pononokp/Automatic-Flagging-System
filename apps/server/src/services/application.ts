@@ -133,6 +133,7 @@ export async function flagApplicationService(formData: any) {
         flags.set("impairmentToAbilityToPractice", true);
     }
 
+    console.log(flags);
     // call db method here
     const applicationData = {
         id:
@@ -140,7 +141,7 @@ export async function flagApplicationService(formData: any) {
             "_" +
             formData.personalInformation.lastName,
         applicantInformation: formData,
-        flags: Object.entries(flags).map(([key, value]) => ({
+        flags: [...flags.entries()].map(([key, value]) => ({
             name: key,
             eligibility: value,
         })),

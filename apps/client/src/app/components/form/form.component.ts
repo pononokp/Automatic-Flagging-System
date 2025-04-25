@@ -73,11 +73,29 @@ export class FormComponent {
     },
     impairmentToAbilityToPractice: null,
   };
-  legalStatusOptions = ['Canadian Citizen', 'Permanent Resident', 'Other'];
-  driversLicenseTypeOptions = ['Canadian', 'International'];
+
   constructor(private http: HttpClient) {}
+
+  private formatDate(date: Date | string | null): string | null {
+    if (!date) return null;
+    if (typeof date === 'string') return date; // already formatted
+    // Format as YYYY-MM-DD
+    return date.toISOString().split('T')[0];
+  }
+
+  private formatAllDates() {
+    const pi = this.model.personalInformation;
+    const ex = this.model.examinations;
+
+    // Formate the dates
+    if (pi?.dateOfBirth) pi.dateOfBirth = this.formatDate(pi.dateOfBirth) ?? '';
+    if (ex?.nacDate) ex.nacDate = this.formatDate(ex.nacDate) ?? '';
+    if (ex?.mccqe1Date) ex.mccqe1Date = this.formatDate(ex.mccqe1Date) ?? '';
+    if (ex?.mccqe2Date) ex.mccqe2Date = this.formatDate(ex.mccqe2Date) ?? '';
+  }
+
   onSubmit() {
-    console.log('Form submitted:', this.model);
+    this.formatAllDates();
     const url = 'http://localhost:5000/application/evaluate';
     const payload = { formData: this.model };
 
