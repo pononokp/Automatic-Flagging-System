@@ -5,7 +5,7 @@ A full-stack application designed to automate the evaluation and flagging of can
 ## Preview
 
 <!-- Add a screenshot here if available -->
-<p align="center"><img width="700" alt="Automatic Flagging System Preview" src="<!-- Add image URL here -->" /></p>
+<p align="center"><img width="700" alt="Automatic Flagging System Preview" src="https://github.com/user-attachments/assets/97fa6378-771a-4ffe-943a-5d61ef7c413e" /></p>
 
 ## Features
 
