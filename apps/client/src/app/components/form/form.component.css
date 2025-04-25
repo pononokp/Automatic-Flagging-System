@@ -1,0 +1,95 @@
+/* General container */
+div {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  gap: 1.5rem;
+  justify-content: space-evenly;
+}
+
+/* Header */
+h2 {
+  margin-bottom: 2rem;
+}
+
+.pinfo_div {
+  flex-direction: row;
+  gap: 1.5rem;
+}
+
+.small_panel {
+  display: flex;
+  margin-bottom: 1.5rem;
+  gap: 1.5rem;
+}
+
+/* Form layout */
+/* form {
+  display: flex;
+  flex-direction: row;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+} */
+
+/* PrimeNG panel spacing */
+p-panel {
+  display: block;
+  margin-bottom: 1.5rem;
+  gap: 1.5rem;
+}
+
+/* Form group layout */
+/* form > p-panel > div {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  padding: 1rem 0;
+} */
+
+form label {
+  text-align: center;
+  justify-content: center;
+  display: inline-block;
+  margin-bottom: 0.25rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+p-select,
+p-datepicker {
+  width: 100%;
+  max-width: 300px;
+  padding: 0.5rem;
+  box-sizing: border-box;
+}
+
+/* Group fields in pairs */
+form > p-panel > div > * {
+  flex: 1 1 45%;
+  min-width: 250px;
+}
+
+/* Radiobutton groups */
+p-panel label {
+  margin-right: 1rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
+}
+
+/* Submit button */
+button[type="submit"] {
+  margin-top: 2rem;
+  align-self: center;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  background-color: #007ad9;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #005ea0;
+}

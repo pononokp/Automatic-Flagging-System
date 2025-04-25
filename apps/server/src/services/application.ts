@@ -140,7 +140,10 @@ export async function flagApplicationService(formData: any) {
             "_" +
             formData.personalInformation.lastName,
         applicantInformation: formData,
-        flags: Object.fromEntries(flags),
+        flags: Object.entries(flags).map(([key, value]) => ({
+            name: key,
+            eligibility: value,
+        })),
         status: "Pending",
     };
 

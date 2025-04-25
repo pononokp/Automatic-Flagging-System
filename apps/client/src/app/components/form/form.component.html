@@ -1,0 +1,408 @@
+<div>
+  <h2>Fill the form below</h2>
+  <p-panel>
+    <form (ngSubmit)="onSubmit()">
+      <p-panel header="Personal Information">
+        <div class="pinfo_div">
+          <label for="firstName">First Name</label>
+          <input
+            type="text"
+            pInputText
+            name="firstName"
+            [(ngModel)]="model.personalInformation.firstName"
+            id="firstName"
+            required
+            style="margin-right: 2rem"
+          />
+
+          <label for="lastName">Last Name</label>
+          <input
+            type="text"
+            pInputText
+            name="lastName"
+            [(ngModel)]="model.personalInformation.lastName"
+            id="lastName"
+            required
+          />
+        </div>
+        <div class="pinfo_div">
+          <label for="email">Email</label>
+          <input
+            type="email"
+            pInputText
+            name="email"
+            [(ngModel)]="model.personalInformation.email"
+            id="email"
+            required
+            style="margin-right: 2rem"
+          />
+          <label for="dateOfBirth">Date of Birth</label>
+          <p-datePicker
+            name="dateOfBirth"
+            [(ngModel)]="model.personalInformation.dateOfBirth"
+            id="dateOfBirth"
+            required
+          />
+        </div>
+        <div>
+          <label for="legalStatus">Legal Status</label>
+          <p-select
+            name="legalStatus"
+            [(ngModel)]="model.personalInformation.legalStatus"
+            id="legalStatus"
+            [options]="['Permanent Resident', 'Canadian Citizen', 'Other']"
+            required
+          />
+
+          <label for="otherCitizenships" style="margin-left: 2rem"
+            >Other Citizenships</label
+          >
+          <input
+            type="text"
+            pInputText
+            name="otherCitizenships"
+            [(ngModel)]="model.personalInformation.otherCitizenships"
+            id="otherCitizenships"
+          />
+        </div>
+        <div>
+          <p-panel header="Has Valid Drivers License?" class="small_panel">
+            <label for="hasValidDriversLicense1">Yes</label>
+            <p-radiobutton
+              name="hasValidDriversLicense"
+              [value]="true"
+              [(ngModel)]="model.personalInformation.hasValidDriversLicense"
+              id="hasValidDriversLicense1"
+            ></p-radiobutton>
+
+            <label for="hasValidDriversLicense2" style="margin-left: 2rem"
+              >No</label
+            >
+            <p-radiobutton
+              name="hasValidDriversLicense"
+              [value]="false"
+              [(ngModel)]="model.personalInformation.hasValidDriversLicense"
+              id="hasValidDriversLicense2"
+            ></p-radiobutton>
+          </p-panel>
+
+          <label for="driversLicenseType">Drivers License Type</label>
+          <p-select
+            name="driversLicenseType"
+            [(ngModel)]="model.personalInformation.driversLicenseType"
+            id="driversLicenseType"
+            [options]="['Canadian', 'International']"
+          />
+
+          <label for="totalInPersonHours" style="margin-left: 2rem"
+            >Total In Person Hours</label
+          >
+          <p-inputNumber
+            name="totalInPersonHours"
+            [(ngModel)]="model.personalInformation.totalInPersonHours"
+            inputId="totalInPersonHours"
+          ></p-inputNumber>
+        </div>
+        <p-panel
+          header="Meets Criteria For Canadian Practice Experience ?"
+          class="small_panel"
+        >
+          <label for="meetsCriteriaForCanadianPracticeExperience1">Yes</label>
+          <p-radiobutton
+            name="meetsCriteriaForCanadianPracticeExperience"
+            [value]="true"
+            [(ngModel)]="
+              model.personalInformation
+                .meetsCriteriaForCanadianPracticeExperience
+            "
+            id="meetsCriteriaForCanadianPracticeExperience1"
+          ></p-radiobutton>
+
+          <label
+            for="meetsCriteriaForCanadianPracticeExperience2"
+            style="margin-left: 2rem"
+            >No</label
+          >
+          <p-radiobutton
+            name="meetsCriteriaForCanadianPracticeExperience"
+            [value]="false"
+            [(ngModel)]="
+              model.personalInformation
+                .meetsCriteriaForCanadianPracticeExperience
+            "
+            id="meetsCriteriaForCanadianPracticeExperience2"
+          ></p-radiobutton>
+        </p-panel>
+      </p-panel>
+      <p-panel header="Previous and Current PRA Attempts">
+        <p-panel header="Written TDM" class="small_panel">
+          <label for="writtenTdm1">Yes</label>
+          <p-radiobutton
+            name="writtenTdm"
+            [value]="true"
+            [(ngModel)]="model.previousAndCurrentPraAttempts.writtenTdm"
+            id="writtenTdm1"
+          ></p-radiobutton>
+
+          <label for="writtenTdm2" style="margin-left: 2rem">No</label>
+          <p-radiobutton
+            name="writtenTdm"
+            [value]="false"
+            [(ngModel)]="model.previousAndCurrentPraAttempts.writtenTdm"
+            id="writtenTdm2"
+          ></p-radiobutton>
+        </p-panel>
+        <p-panel header="Result TDM" class="small_panel">
+          <label for="resultTdm1">Pass</label>
+          <p-radiobutton
+            name="resultTdm"
+            value="Pass"
+            [(ngModel)]="model.previousAndCurrentPraAttempts.resultTdm"
+            id="resultTdm1"
+          ></p-radiobutton>
+
+          <label for="resultTdm2" style="margin-left: 2rem">Fail</label>
+          <p-radiobutton
+            name="resultTdm"
+            value="Fail"
+            [(ngModel)]="model.previousAndCurrentPraAttempts.resultTdm"
+            id="resultTdm2"
+          ></p-radiobutton>
+        </p-panel>
+        <p-panel
+          header="Current PRA Participation In Other Jurisdiction"
+          class="small_panel"
+        >
+          <label for="currentPraParticipationInOtherJurisdiction1">Yes</label>
+          <p-radiobutton
+            name="currentPraParticipationInOtherJurisdiction"
+            [value]="true"
+            [(ngModel)]="
+              model.previousAndCurrentPraAttempts
+                .currentPraParticipationInOtherJurisdiction
+            "
+            id="currentPraParticipationInOtherJurisdiction1"
+          ></p-radiobutton>
+
+          <label
+            for="currentPraParticipationInOtherJurisdiction2"
+            style="margin-left: 2rem"
+            >No</label
+          >
+          <p-radiobutton
+            name="currentPraParticipationInOtherJurisdiction"
+            [value]="false"
+            [(ngModel)]="
+              model.previousAndCurrentPraAttempts
+                .currentPraParticipationInOtherJurisdiction
+            "
+            id="currentPraParticipationInOtherJurisdiction2"
+          ></p-radiobutton>
+        </p-panel>
+      </p-panel>
+      <p-panel header="Medical Education">
+        <label for="medicalSchoolUniversityAttended"
+          >Medical School University Attended</label
+        >
+        <input
+          type="text"
+          pInputText
+          name="medicalSchoolUniversityAttended"
+          [(ngModel)]="model.medicalEducation.medicalSchoolUniversityAttended"
+          id="medicalSchoolUniversityAttended"
+          style="margin-right: 2rem"
+        />
+
+        <div style="justify-content: left">
+          <label for="medDegreeProgramName">Medical Degree Program Name</label>
+          <input
+            type="text"
+            pInputText
+            name="medDegreeProgramName"
+            [(ngModel)]="model.medicalEducation.medDegreeProgramName"
+            id="medDegreeProgramName"
+          />
+        </div>
+
+        <label for="yearGraduation">Year of Graduation</label>
+        <p-inputNumber
+          name="yearGraduation"
+          [(ngModel)]="model.medicalEducation.yearGraduation"
+          inputId="yearGraduation"
+        ></p-inputNumber>
+
+        <label for="languageOfEducation" style="margin-left: 2rem"
+          >Language of Education</label
+        >
+        <input
+          type="text"
+          pInputText
+          name="languageOfEducation"
+          [(ngModel)]="model.medicalEducation.languageOfEducation"
+          id="languageOfEducation"
+        />
+      </p-panel>
+      <p-panel header="English Proficiency">
+        <p-panel header="Proof of English Language Proficiency">
+          <label for="exam">Exam</label>
+          <p-select
+            name="exam"
+            [(ngModel)]="
+              model.englishProficiency.proofOfEnglishLanguageProficiency.name
+            "
+            id="exam"
+            [options]="['TOEFL', 'IELTS', 'OET']"
+          />
+
+          <label for="score" style="margin-left: 2rem">Score</label>
+          <p-inputNumber
+            name="score"
+            [(ngModel)]="
+              model.englishProficiency.proofOfEnglishLanguageProficiency.score
+            "
+            inputId="score"
+          ></p-inputNumber>
+        </p-panel>
+
+        <div style="justify-content: left">
+          <label for="recentPracticeInEnglishSpeakingCountry"
+            >Recent Practice in English Speaking Country</label
+          >
+          <input
+            type="text"
+            pInputText
+            name="recentPracticeInEnglishSpeakingCountry"
+            [(ngModel)]="
+              model.englishProficiency.recentPracticeInEnglishSpeakingCountry
+            "
+            id="recentPracticeInEnglishSpeakingCountry"
+          />
+        </div>
+
+        <p-panel header="Active Use of English?" class="small_panel">
+          <label for="activeUseOfEnglish1">Yes</label>
+          <p-radiobutton
+            name="activeUseOfEnglish"
+            [value]="true"
+            [(ngModel)]="model.englishProficiency.activeUseOfEnglish"
+            id="activeUseOfEnglish1"
+          ></p-radiobutton>
+
+          <label for="activeUseOfEnglish2" style="margin-left: 2rem">No</label>
+          <p-radiobutton
+            name="activeUseOfEnglish"
+            [value]="false"
+            [(ngModel)]="model.englishProficiency.activeUseOfEnglish"
+            id="activeUseOfEnglish2"
+          ></p-radiobutton>
+        </p-panel>
+      </p-panel>
+      <p-panel header="Examinations">
+        <label for="nacDate">NAC DATE</label>
+        <p-datepicker
+          name="nacDate"
+          [(ngModel)]="model.examinations.nacDate"
+          id="nacDate"
+        />
+
+        <label for="mccqe2Date">MCCQE2 Date</label>
+        <p-datepicker
+          name="mccqe2Date"
+          [(ngModel)]="model.examinations.mccqe2Date"
+          id="mccqe2Date"
+        />
+
+        <label for="mccqe1Date">MCCQE1 Date</label>
+        <p-datepicker
+          name="mccqe1Date"
+          [(ngModel)]="model.examinations.mccqe1Date"
+          id="mccqe1Date"
+        />
+      </p-panel>
+
+      <p-panel header="Post-Graduate Training">
+        <label for="noOfMonthsPostGradTraining"
+          >Number of Months of Post-Graduate Training</label
+        >
+        <p-inputNumber
+          name="noOfMonthsPostGradTraining"
+          [(ngModel)]="model.postgradTraining.noOfMonthsPostGradTraining"
+          inputId="noOfMonthsPostGradTraining"
+        ></p-inputNumber>
+
+        <label for="noOfMonthsIndependentPractice" style="margin-left: 2rem"
+          >Number of Months of Independent Practice</label
+        >
+        <p-inputNumber
+          name="noOfMonthsIndependentPractice"
+          [(ngModel)]="model.postgradTraining.noOfMonthsIndependentPractice"
+          inputId="noOfMonthsIndependentPractice"
+        ></p-inputNumber>
+
+        <p-panel
+          header="Completed of 2 year Post-Graduate Training"
+          class="small_panel"
+        >
+          <label for="completedOf2YearPostGradTraining1">Yes</label>
+          <p-radiobutton
+            name="completedOf2YearPostGradTraining"
+            [value]="true"
+            [(ngModel)]="model.postgradTraining.completionOf2YearPostGrad"
+            id="completedOf2YearPostGradTraining1"
+          ></p-radiobutton>
+
+          <label
+            for="completedOf2YearPostGradTraining2"
+            style="margin-left: 2rem"
+            >No</label
+          >
+          <p-radiobutton
+            name="completedOf2YearPostGradTraining"
+            [value]="false"
+            [(ngModel)]="model.postgradTraining.completionOf2YearPostGrad"
+            id="completedOf2YearPostGradTraining2"
+          ></p-radiobutton>
+        </p-panel>
+      </p-panel>
+
+      <p-panel header="Completed 7 Rotations" class="small_panel">
+        <label for="completed7Rotations1">Yes</label>
+        <p-radiobutton
+          name="completed7Rotations"
+          [value]="true"
+          [(ngModel)]="model.rotations.completed7Rotations"
+          id="completed7Rotations1"
+        ></p-radiobutton>
+
+        <label for="completed7Rotations2" style="margin-left: 2rem">No</label>
+        <p-radiobutton
+          name="completed7Rotations"
+          [value]="false"
+          [(ngModel)]="model.rotations.completed7Rotations"
+          id="completed7Rotations2"
+        ></p-radiobutton>
+      </p-panel>
+
+      <p-panel header="Impairment to Ability to Practice" class="small_panel">
+        <label for="impairmentToAbilityToPractice">Yes</label>
+        <p-radiobutton
+          name="impairmentToAbilityToPractice"
+          [value]="true"
+          [(ngModel)]="model.impairmentToAbilityToPractice"
+          id="impairmentToAbilityToPractice1"
+        ></p-radiobutton>
+
+        <label for="impairmentToAbilityToPractice2" style="margin-left: 2rem"
+          >No</label
+        >
+        <p-radiobutton
+          name="impairmentToAbilityToPractice"
+          [value]="false"
+          [(ngModel)]="model.impairmentToAbilityToPractice"
+          id="impairmentToAbilityToPractice2"
+        ></p-radiobutton>
+      </p-panel>
+      <button type="submit" pButton label="Submit"></button>
+    </form>
+  </p-panel>
+</div>

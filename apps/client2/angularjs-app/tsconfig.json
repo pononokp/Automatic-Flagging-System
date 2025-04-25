@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "target": "es2022", // Set to es2022 or esnext
+        "module": "esnext", // Use ES module syntax
+        "moduleResolution": "node", // Ensure Node-style module resolution
+        "lib": ["es2022", "dom"],
+        "outDir": "dist/angular-app",
+        "baseUrl": "angular-app/src",
+        "skipLibCheck": true,
+        "sourceMap": true,
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "noImplicitAny": true
+    }
+}

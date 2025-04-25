@@ -1,0 +1,42 @@
+<div>
+  <div *ngIf="status == 'Pending'">
+    <p-table [value]="flags" [tableStyle]="{ 'min-width': '60rem' }">
+      <ng-template #caption>
+        <div style="display: flex; justify-content: space-between">
+          <span class="text-xl font-bold">Flags</span>
+          <p-button label="Approve" (click)="onApproved()" />
+        </div>
+      </ng-template>
+      <ng-template #header>
+        <tr>
+          <th>Flag Name</th>
+          <th>Eligibility</th>
+          <th>Action</th>
+        </tr>
+      </ng-template>
+      <ng-template #body let-flag>
+        <tr>
+          <td>{{ flag.name }}</td>
+          <td>
+            <p-tag
+              [value]="flag.eligibility ? 'Eligible' : 'Not Eligible'"
+              [severity]="getSeverity(flag.eligibility)"
+            />
+          </td>
+          <td>
+            <p-selectbutton
+              [options]="stateOptions"
+              (onChange)="onEligibilityChange(flag, $event.value)"
+              optionLabel="label"
+              optionValue="value"
+              aria-labelledby="basic"
+            />
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <div *ngIf="status == 'Reviewed'">
+    <h2>Reviewed</h2>
+  </div>
+</div>

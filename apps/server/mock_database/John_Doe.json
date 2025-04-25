@@ -47,18 +47,51 @@
         },
         "impairmentToAbilityToPractice": false
     },
-    "flags": {
-        "legalStatus": false,
-        "driversLicense": true,
-        "totalInPersonHours": true,
-        "meetsCriteriaForCanadianPracticeExperience": true,
-        "writtenTdm": true,
-        "resultTdm": true,
-        "currentPraParticipationInOtherJurisdiction": true,
-        "proofOfEnglishLanguageProficiency": true,
-        "activeUseOfEnglish": true,
-        "completed7Rotations": true,
-        "impairmentToAbilityToPractice": true
-    },
+    "flags": [
+        {
+            "name": "legalStatus",
+            "eligibility": false
+        },
+        {
+            "name": "driversLicense",
+            "eligibility": true
+        },
+        {
+            "name": "totalInPersonHours",
+            "eligibility": true
+        },
+        {
+            "name": "meetsCriteriaForCanadianPracticeExperience",
+            "eligibility": true
+        },
+        {
+            "name": "writtenTdm",
+            "eligibility": true
+        },
+        {
+            "name": "resultTdm",
+            "eligibility": true
+        },
+        {
+            "name": "currentPraParticipationInOtherJurisdiction",
+            "eligibility": true
+        },
+        {
+            "name": "proofOfEnglishLanguageProficiency",
+            "eligibility": true
+        },
+        {
+            "name": "activeUseOfEnglish",
+            "eligibility": true
+        },
+        {
+            "name": "completed7Rotations",
+            "eligibility": false
+        },
+        {
+            "name": "impairmentToAbilityToPractice",
+            "eligibility": true
+        }
+    ],
     "status": "Reviewed"
 }
