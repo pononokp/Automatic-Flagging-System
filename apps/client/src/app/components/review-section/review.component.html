@@ -1,0 +1,45 @@
+<div
+  *ngIf="applications"
+  style="display: flex; flex-direction: column; gap: 1rem"
+>
+  <p-panel>
+    <div style="display: flex; flex-wrap: wrap; gap: 1rem">
+      <div *ngFor="let application of applications">
+        <div
+          style="
+            width: 25rem;
+            overflow: hidden;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+          "
+        >
+          <div style="font-weight: bold; font-size: 1.2rem">
+            {{ application.applicantInformation.personalInformation.firstName }}
+            {{ application.applicantInformation.personalInformation.lastName }}
+          </div>
+          <div style="color: #666">
+            {{ application.applicantInformation.personalInformation.email }}
+          </div>
+          <p>
+            {{
+              application.applicantInformation.personalInformation.legalStatus
+            }}
+          </p>
+          <div style="margin-top: 1rem">
+            <p-button label="Review" (click)="onReview(application)" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </p-panel>
+  <p-panel>
+    <flag-table
+      [application]="applicationInfo"
+      [flags]="flags"
+      [status]="status"
+    ></flag-table>
+  </p-panel>
+</div>

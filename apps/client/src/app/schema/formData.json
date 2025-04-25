@@ -1,0 +1,134 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "type": "object",
+    "properties": {
+        "personalInformation": {
+            "type": "object",
+            "properties": {
+                "firstName": { "type": "string" },
+                "lastName": { "type": "string" },
+                "email": { "type": "string", "format": "email" },
+                "dateOfBirth": { "type": "string", "format": "date" },
+                "legalStatus": { "type": "string" },
+                "otherCitizenships": { "type": "string" },
+                "hasValidDriversLicense": { "type": "boolean" },
+                "driversLicenseType": { "type": "string" },
+                "totalInPersonHours": { "type": "integer", "minimum": 0 },
+                "meetsCriteriaForCanadianPracticeExperience": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "firstName",
+                "lastName",
+                "email",
+                "dateOfBirth",
+                "legalStatus",
+                "hasValidDriversLicense",
+                "totalInPersonHours",
+                "meetsCriteriaForCanadianPracticeExperience"
+            ]
+        },
+        "previousAndCurrentPraAttempts": {
+            "type": "object",
+            "properties": {
+                "writtenTdm": { "type": "boolean" },
+                "resultTdm": {
+                    "type": "string",
+                    "enum": ["Pass", "Fail"]
+                },
+                "currentPraParticipationInOtherJurisdiction": {
+                    "type": "boolean"
+                }
+            },
+            "required": [
+                "writtenTdm",
+                "resultTdm",
+                "currentPraParticipationInOtherJurisdiction"
+            ]
+        },
+        "medicalEducation": {
+            "type": "object",
+            "properties": {
+                "medicalSchoolUniversityAttended": { "type": "string" },
+                "medDegreeProgramName": { "type": "string" },
+                "yearGraduation": { "type": "integer" },
+                "languageOfEducation": { "type": "string" }
+            },
+            "required": [
+                "medicalSchoolUniversityAttended",
+                "medDegreeProgramName",
+                "yearGraduation",
+                "languageOfEducation"
+            ]
+        },
+        "englishProficiency": {
+            "type": "object",
+            "properties": {
+                "proofOfEnglishLanguageProficiency": {
+                    "type": "object",
+                    "properties": {
+                        "name": { "type": "string" },
+                        "score": {
+                            "type": "number"
+                        }
+                    },
+                    "required": ["name", "score"]
+                },
+                "recentPracticeInEnglishSpeakingCountry": { "type": "string" },
+                "activeUseOfEnglish": { "type": "boolean" }
+            },
+            "required": [
+                "proofOfEnglishLanguageProficiency",
+                "recentPracticeInEnglishSpeakingCountry",
+                "activeUseOfEnglish"
+            ]
+        },
+        "examinations": {
+            "type": "object",
+            "properties": {
+                "nacDate": { "type": "string", "format": "date" },
+                "mccqe2Date": { "type": "string", "format": "date" },
+                "mccqe1Date": { "type": "string", "format": "date" }
+            },
+            "required": ["nacDate", "mccqe2Date", "mccqe1Date"]
+        },
+        "postgradTraining": {
+            "type": "object",
+            "properties": {
+                "noOfMonthsPostGradTraining": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "noOfMonthsIndependentPractice": {
+                    "type": "integer",
+                    "minimum": 0
+                },
+                "completionOf2YearPostGrad": { "type": "boolean" }
+            },
+            "required": [
+                "noOfMonthsPostGradTraining",
+                "noOfMonthsIndependentPractice",
+                "completionOf2YearPostGrad"
+            ]
+        },
+        "rotations": {
+            "type": "object",
+            "properties": {
+                "completed7Rotations": { "type": "boolean" }
+            },
+            "required": ["completed7Rotations"]
+        },
+        "impairmentToAbilityToPractice": { "type": "boolean" }
+    },
+    "required": [
+        "personalInformation",
+        "previousAndCurrentPraAttempts",
+        "medicalEducation",
+        "englishProficiency",
+        "examinations",
+        "postgradTraining",
+        "rotations",
+        "impairmentToAbilityToPractice"
+    ]
+}

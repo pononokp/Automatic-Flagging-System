@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <!-- AngularJS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+        <!-- Your AngularJS app -->
+        <script src="dist/angular-app/app.js"></script>
+
+        <!-- Polyfill(s) for older browsers -->
+        <script src="node_modules/core-js/client/shim.min.js"></script>
+
+        <script src="node_modules/zone.js/fesm2015/zone.js"></script>
+        <script src="node_modules/systemjs/dist/system.src.js"></script>
+
+        <script src="systemjs.config.js"></script>
+        <script>
+            System.import("dist/angular-app/angular-app/src/main.js").catch(
+                function (err) {
+                    console.error(err);
+                }
+            );
+        </script>
+    </head>
+    <body>
+        <div id="message" ng-controller="medEvalController as mctrl">
+            <h1>First Angular App</h1>
+            <p>{{ mctrl.message }}</p>
+        </div>
+    </body>
+</html>
