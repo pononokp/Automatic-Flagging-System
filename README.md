@@ -19,7 +19,7 @@ A full-stack application designed to automate the evaluation and flagging of can
 
 - **Frontend**: Angular + TypeScript + PrimeNG
 - **Backend**: Node.js + Express + TypeScript
-- **Database**: (Mock database or specify if using MongoDB, PostgreSQL, etc.)
+- **Database**: (Mock database built for MongoDB)
 - **UI Components**: PrimeNG
 - **HTTP Client**: Angular HttpClient
 
@@ -38,7 +38,7 @@ A full-stack application designed to automate the evaluation and flagging of can
     pnpm install
     ```
 
-2. Install dependencies for both client and server Just to be same:
+2. Install dependencies for both client and server Just to be safe:
 
     ```bash
     # Install client dependencies
@@ -54,7 +54,7 @@ A full-stack application designed to automate the evaluation and flagging of can
 
     ```bash
     # In one terminal
-    cd automatic-flagging-system
+    cd ../..
     pnpm run dev
 
     ```
@@ -85,7 +85,7 @@ Automatic-Flagging-System/
 └── package.json
 ```
 
-You can also check out client2. It was an attempt to make a Hybrid andgular app so I could use PrimeNG components on AngularJS as per the original requirements. Took me a very long time and I didn't succed however I did learn alot. I will continue to work on it and do want to finish it. It will probably go for an older version of Angular (Mayber 4) as it seems more cooperative for what I'm trying to do. Will be hard to find PrimeNG document for that version though.
+You can also check out client2. It was an attempt to make a Hybrid Angular app (Angular and AngularJS(1.x) running together) so I could use PrimeNG components on AngularJS as per the original requirements. Took me a very long time and I didn't succed however I did learn alot. Alternatively, I could have tried using web elements. It just felt too hacky to convert entire PrimeNG components using angular/elements. That is probably a better solution if the Hybrid setup isn't running already. I will continue to work on it and do want to finish it. It will probably go for an older version of Angular (Mayber 4) as it seems more cooperative for what I'm trying to do. Will be hard to find PrimeNG document for that version though. Part of my hesitancy was I wasn't sure if these were good solutions for an enterprise project. It would be something I would avoid unless I absolutely had to for long term maintainance.
 
 ## API Endpoints
 
