@@ -1,10 +1,10 @@
 <div>
-  <h2>Fill the form below</h2>
+  <h2>Fill the form below (All fields marked with * are required)</h2>
   <p-panel>
     <form (ngSubmit)="onSubmit()">
       <p-panel header="Personal Information">
         <div class="pinfo_div">
-          <label for="firstName">First Name</label>
+          <label for="firstName">First Name *</label>
           <input
             type="text"
             pInputText
@@ -15,7 +15,7 @@
             style="margin-right: 2rem"
           />
 
-          <label for="lastName">Last Name</label>
+          <label for="lastName">Last Name *</label>
           <input
             type="text"
             pInputText
@@ -26,7 +26,7 @@
           />
         </div>
         <div class="pinfo_div">
-          <label for="email">Email</label>
+          <label for="email">Email *</label>
           <input
             type="email"
             pInputText
@@ -36,7 +36,7 @@
             required
             style="margin-right: 2rem"
           />
-          <label for="dateOfBirth">Date of Birth</label>
+          <label for="dateOfBirth">Date of Birth *</label>
           <p-datePicker
             name="dateOfBirth"
             [(ngModel)]="model.personalInformation.dateOfBirth"
@@ -44,8 +44,8 @@
             required
           />
         </div>
-        <div>
-          <label for="legalStatus">Legal Status</label>
+        <div class="pinfo_div">
+          <label for="legalStatus">Legal Status *</label>
           <p-select
             name="legalStatus"
             [(ngModel)]="model.personalInformation.legalStatus"
@@ -65,14 +65,15 @@
             id="otherCitizenships"
           />
         </div>
-        <div>
-          <p-panel header="Has Valid Drivers License?" class="small_panel">
+        <div class="pinfo_div">
+          <p-panel header="Has Valid Drivers License? *" class="small_panel">
             <label for="hasValidDriversLicense1">Yes</label>
             <p-radiobutton
               name="hasValidDriversLicense"
               [value]="true"
               [(ngModel)]="model.personalInformation.hasValidDriversLicense"
               id="hasValidDriversLicense1"
+              required
             ></p-radiobutton>
 
             <label for="hasValidDriversLicense2" style="margin-left: 2rem"
@@ -86,25 +87,27 @@
             ></p-radiobutton>
           </p-panel>
 
-          <label for="driversLicenseType">Drivers License Type</label>
+          <label for="driversLicenseType">Drivers License Type *</label>
           <p-select
             name="driversLicenseType"
             [(ngModel)]="model.personalInformation.driversLicenseType"
             id="driversLicenseType"
             [options]="['Canadian', 'International']"
+            required
           />
 
           <label for="totalInPersonHours" style="margin-left: 2rem"
-            >Total In Person Hours</label
+            >Total In Person Hours *</label
           >
           <p-inputNumber
             name="totalInPersonHours"
             [(ngModel)]="model.personalInformation.totalInPersonHours"
             inputId="totalInPersonHours"
+            required
           ></p-inputNumber>
         </div>
         <p-panel
-          header="Meets Criteria For Canadian Practice Experience ?"
+          header="Meets Criteria For Canadian Practice Experience ? *"
           class="small_panel"
         >
           <label for="meetsCriteriaForCanadianPracticeExperience1">Yes</label>
@@ -116,6 +119,7 @@
                 .meetsCriteriaForCanadianPracticeExperience
             "
             id="meetsCriteriaForCanadianPracticeExperience1"
+            required
           ></p-radiobutton>
 
           <label
@@ -135,13 +139,14 @@
         </p-panel>
       </p-panel>
       <p-panel header="Previous and Current PRA Attempts">
-        <p-panel header="Written TDM" class="small_panel">
+        <p-panel header="Written TDM *" class="small_panel">
           <label for="writtenTdm1">Yes</label>
           <p-radiobutton
             name="writtenTdm"
             [value]="true"
             [(ngModel)]="model.previousAndCurrentPraAttempts.writtenTdm"
             id="writtenTdm1"
+            required
           ></p-radiobutton>
 
           <label for="writtenTdm2" style="margin-left: 2rem">No</label>
@@ -152,13 +157,14 @@
             id="writtenTdm2"
           ></p-radiobutton>
         </p-panel>
-        <p-panel header="Result TDM" class="small_panel">
+        <p-panel header="Result TDM *" class="small_panel">
           <label for="resultTdm1">Pass</label>
           <p-radiobutton
             name="resultTdm"
             value="Pass"
             [(ngModel)]="model.previousAndCurrentPraAttempts.resultTdm"
             id="resultTdm1"
+            required
           ></p-radiobutton>
 
           <label for="resultTdm2" style="margin-left: 2rem">Fail</label>
@@ -170,7 +176,7 @@
           ></p-radiobutton>
         </p-panel>
         <p-panel
-          header="Current PRA Participation In Other Jurisdiction"
+          header="Current PRA Participation In Other Jurisdiction *"
           class="small_panel"
         >
           <label for="currentPraParticipationInOtherJurisdiction1">Yes</label>
@@ -182,6 +188,7 @@
                 .currentPraParticipationInOtherJurisdiction
             "
             id="currentPraParticipationInOtherJurisdiction1"
+            required
           ></p-radiobutton>
 
           <label
@@ -212,23 +219,24 @@
           id="medicalSchoolUniversityAttended"
           style="margin-right: 2rem"
         />
-
-        <div style="justify-content: left">
-          <label for="medDegreeProgramName">Medical Degree Program Name</label>
-          <input
-            type="text"
-            pInputText
-            name="medDegreeProgramName"
-            [(ngModel)]="model.medicalEducation.medDegreeProgramName"
-            id="medDegreeProgramName"
-          />
-        </div>
-
-        <label for="yearGraduation">Year of Graduation</label>
+        <br />
+        <br />
+        <label for="medDegreeProgramName">Medical Degree Program Name</label>
+        <input
+          type="text"
+          pInputText
+          name="medDegreeProgramName"
+          [(ngModel)]="model.medicalEducation.medDegreeProgramName"
+          id="medDegreeProgramName"
+        />
+        <br />
+        <br />
+        <label for="yearGraduation">Year of Graduation *</label>
         <p-inputNumber
           name="yearGraduation"
           [(ngModel)]="model.medicalEducation.yearGraduation"
           inputId="yearGraduation"
+          required
         ></p-inputNumber>
 
         <label for="languageOfEducation" style="margin-left: 2rem"
@@ -243,8 +251,8 @@
         />
       </p-panel>
       <p-panel header="English Proficiency">
-        <p-panel header="Proof of English Language Proficiency">
-          <label for="exam">Exam</label>
+        <p-panel header="Proof of English Language Proficiency *">
+          <label for="exam">Exam *</label>
           <p-select
             name="exam"
             [(ngModel)]="
@@ -252,40 +260,43 @@
             "
             id="exam"
             [options]="['TOEFL', 'IELTS', 'OET']"
+            required
           />
 
-          <label for="score" style="margin-left: 2rem">Score</label>
+          <label for="score" style="margin-left: 2rem">Score *</label>
           <p-inputNumber
             name="score"
             [(ngModel)]="
               model.englishProficiency.proofOfEnglishLanguageProficiency.score
             "
             inputId="score"
+            required
           ></p-inputNumber>
         </p-panel>
 
-        <div style="justify-content: left">
-          <label for="recentPracticeInEnglishSpeakingCountry"
-            >Recent Practice in English Speaking Country</label
-          >
-          <input
-            type="text"
-            pInputText
-            name="recentPracticeInEnglishSpeakingCountry"
-            [(ngModel)]="
-              model.englishProficiency.recentPracticeInEnglishSpeakingCountry
-            "
-            id="recentPracticeInEnglishSpeakingCountry"
-          />
-        </div>
-
-        <p-panel header="Active Use of English?" class="small_panel">
+        <label for="recentPracticeInEnglishSpeakingCountry"
+          >Recent Practice in English Speaking Country *</label
+        >
+        <input
+          type="text"
+          pInputText
+          name="recentPracticeInEnglishSpeakingCountry"
+          [(ngModel)]="
+            model.englishProficiency.recentPracticeInEnglishSpeakingCountry
+          "
+          id="recentPracticeInEnglishSpeakingCountry"
+          required
+        />
+        <br />
+        <br />
+        <p-panel header="Active Use of English? *" class="small_panel">
           <label for="activeUseOfEnglish1">Yes</label>
           <p-radiobutton
             name="activeUseOfEnglish"
             [value]="true"
             [(ngModel)]="model.englishProficiency.activeUseOfEnglish"
             id="activeUseOfEnglish1"
+            required
           ></p-radiobutton>
 
           <label for="activeUseOfEnglish2" style="margin-left: 2rem">No</label>
@@ -298,51 +309,57 @@
         </p-panel>
       </p-panel>
       <p-panel header="Examinations">
-        <label for="nacDate">NAC DATE</label>
+        <label for="nacDate">NAC DATE *</label>
         <p-datepicker
           name="nacDate"
           [(ngModel)]="model.examinations.nacDate"
           id="nacDate"
+          required
         />
 
-        <label for="mccqe2Date">MCCQE2 Date</label>
+        <label for="mccqe2Date" style="margin-left: 2rem">MCCQE2 Date *</label>
         <p-datepicker
           name="mccqe2Date"
           [(ngModel)]="model.examinations.mccqe2Date"
           id="mccqe2Date"
+          required
         />
-
-        <label for="mccqe1Date">MCCQE1 Date</label>
+        <br />
+        <br />
+        <label for="mccqe1Date">MCCQE1 Date *</label>
         <p-datepicker
           name="mccqe1Date"
           [(ngModel)]="model.examinations.mccqe1Date"
           id="mccqe1Date"
+          required
         />
       </p-panel>
 
       <p-panel header="Post-Graduate Training">
         <label for="noOfMonthsPostGradTraining"
-          >Number of Months of Post-Graduate Training</label
+          >Number of Months of Post-Graduate Training *</label
         >
         <p-inputNumber
           name="noOfMonthsPostGradTraining"
           [(ngModel)]="model.postgradTraining.noOfMonthsPostGradTraining"
           inputId="noOfMonthsPostGradTraining"
+          required
         ></p-inputNumber>
         <br />
         <br />
-        <label for="noOfMonthsIndependentPractice" style="margin-left: 1rem"
-          >Number of Months of Independent Practice</label
+        <label for="noOfMonthsIndependentPractice"
+          >Number of Months of Independent Practice *</label
         >
         <p-inputNumber
           name="noOfMonthsIndependentPractice"
           [(ngModel)]="model.postgradTraining.noOfMonthsIndependentPractice"
           inputId="noOfMonthsIndependentPractice"
+          required
         ></p-inputNumber>
         <br />
         <br />
         <p-panel
-          header="Completed of 2 year Post-Graduate Training"
+          header="Completed 2 year Post-Graduate Training *"
           class="small_panel"
         >
           <label for="completedOf2YearPostGradTraining1">Yes</label>
@@ -351,6 +368,7 @@
             [value]="true"
             [(ngModel)]="model.postgradTraining.completionOf2YearPostGrad"
             id="completedOf2YearPostGradTraining1"
+            required
           ></p-radiobutton>
 
           <label
@@ -367,13 +385,14 @@
         </p-panel>
       </p-panel>
 
-      <p-panel header="Completed 7 Rotations" class="small_panel">
+      <p-panel header="Completed 7 Rotations *" class="small_panel">
         <label for="completed7Rotations1">Yes</label>
         <p-radiobutton
           name="completed7Rotations"
           [value]="true"
           [(ngModel)]="model.rotations.completed7Rotations"
           id="completed7Rotations1"
+          required
         ></p-radiobutton>
 
         <label for="completed7Rotations2" style="margin-left: 2rem">No</label>
@@ -385,13 +404,14 @@
         ></p-radiobutton>
       </p-panel>
 
-      <p-panel header="Impairment to Ability to Practice" class="small_panel">
+      <p-panel header="Impairment to Ability to Practice *" class="small_panel">
         <label for="impairmentToAbilityToPractice">Yes</label>
         <p-radiobutton
           name="impairmentToAbilityToPractice"
           [value]="true"
           [(ngModel)]="model.impairmentToAbilityToPractice"
           id="impairmentToAbilityToPractice1"
+          required
         ></p-radiobutton>
 
         <label for="impairmentToAbilityToPractice2" style="margin-left: 2rem"
@@ -407,4 +427,5 @@
       <button type="submit" pButton label="Submit"></button>
     </form>
   </p-panel>
+  <p-toast />
 </div>

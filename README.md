@@ -1,6 +1,6 @@
 # Automatic Flagging System
 
-A full-stack application designed to automate the evaluation and flagging of candidate applications based on configurable rules. The system provides a user-friendly interface for submitting applications, reviewing flagged records, and managing the review process.
+A full-stack application designed to automate the evaluation and flagging of candidate applications based on configurable rules. The system provides a user-friendly interface for submitting applications, reviewing flagged records, and managing the review process. Fill multiple applications and review them to see the whole system come together.
 
 ## Preview
 

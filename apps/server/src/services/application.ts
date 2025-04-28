@@ -21,8 +21,6 @@ export async function flagApplicationService(formData: any) {
         "India",
     ];
 
-    console.log(formData);
-
     // Personal Information Checks
     if (
         formData.personalInformation.legalStatus === "Permanent Resident" ||
@@ -133,8 +131,7 @@ export async function flagApplicationService(formData: any) {
         flags.set("impairmentToAbilityToPractice", true);
     }
 
-    console.log(flags);
-    // call db method here
+    // call model method here
     const applicationData = {
         id:
             formData.personalInformation.firstName +
@@ -154,9 +151,11 @@ export async function flagApplicationService(formData: any) {
 }
 
 export async function getApplicationsService() {
+    // call model method here
     return await getApplicationsDB();
 }
 
 export async function updateApplicationService(applicationData: any) {
+    // call model method here
     return await updateApplicationDB(applicationData);
 }
