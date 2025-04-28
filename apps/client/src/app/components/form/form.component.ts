@@ -8,6 +8,9 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { DatePickerModule } from 'primeng/datepicker';
 import { PanelModule } from 'primeng/panel';
 import { SelectModule } from 'primeng/select';
+import { MessageService } from 'primeng/api';
+import { Toast } from 'primeng/toast';
+import { Ripple } from 'primeng/ripple';
 
 @Component({
   selector: 'candidate-form',
@@ -23,7 +26,10 @@ import { SelectModule } from 'primeng/select';
     PanelModule,
     FormsModule,
     SelectModule,
+    Toast,
+    Ripple,
   ],
+  providers: [MessageService],
 })
 export class FormComponent {
   model = {
@@ -74,7 +80,10 @@ export class FormComponent {
     impairmentToAbilityToPractice: null,
   };
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private messageService: MessageService,
+  ) {}
 
   private formatDate(date: Date | string | null): string | null {
     if (!date) return null;
@@ -101,11 +110,24 @@ export class FormComponent {
 
     this.http.post(url, payload).subscribe({
       next: (response: any) => {
-        console.log('Application evaluated successfully:', response);
         // Optionally update status/UI here
+        // Show success toast message
+        this.messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Application submitted successfully',
+          life: 3000,
+        });
       },
       error: (error: any) => {
         console.error('Error evaluating application:', error);
+        // Show error toast message
+        this.messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: 'Please fill all required fields',
+          life: 3000,
+        });
       },
     });
   }

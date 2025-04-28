@@ -2,6 +2,8 @@
   *ngIf="applications"
   style="display: flex; flex-direction: column; gap: 1rem"
 >
+  <p-toast />
+  <p-button label="Refresh" (click)="getApplications()" />
   <p-panel>
     <div style="display: flex; flex-wrap: wrap; gap: 1rem">
       <div *ngFor="let application of applications">

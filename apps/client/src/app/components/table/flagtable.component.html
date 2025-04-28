@@ -1,4 +1,5 @@
 <div>
+  <p-toast />
   <div *ngIf="status == 'Pending'">
     <p-table [value]="flags" [tableStyle]="{ 'min-width': '60rem' }">
       <ng-template #caption>
@@ -38,5 +39,29 @@
   </div>
   <div *ngIf="status == 'Reviewed'">
     <h2>Reviewed</h2>
+    <p-table [value]="flags" [tableStyle]="{ 'min-width': '60rem' }">
+      <ng-template #caption>
+        <div style="display: flex; justify-content: space-between">
+          <span style="font-weight: bold; font-size: 1.2rem">Flags</span>
+        </div>
+      </ng-template>
+      <ng-template #header>
+        <tr>
+          <th>Flag Name</th>
+          <th>Eligibility</th>
+        </tr>
+      </ng-template>
+      <ng-template #body let-flag>
+        <tr>
+          <td>{{ flag.name }}</td>
+          <td>
+            <p-tag
+              [value]="flag.eligibility ? 'Eligible' : 'Not Eligible'"
+              [severity]="getSeverity(flag.eligibility)"
+            />
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
   </div>
 </div>

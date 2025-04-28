@@ -15,12 +15,17 @@ h2 {
 .pinfo_div {
   flex-direction: row;
   gap: 1.5rem;
+  padding: 2rem 1rem;
 }
 
 .small_panel {
   display: flex;
   margin-bottom: 1.5rem;
   gap: 1.5rem;
+}
+::ng-deep .small_panel .p-panel-header {
+  font-size: 0.85rem;
+  font-weight: 400;
 }
 
 /* Form layout */

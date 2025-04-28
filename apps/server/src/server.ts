@@ -11,6 +11,8 @@ const app = express();
 
 app.use(cors());
 app.use(bodyParser.json());
+
+// Redirect all requests to /application to applicationRouter
 app.use("/application", applicationRouter);
 
 export default app;
